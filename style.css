@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --borda-basica: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+body {
+  padding: 2rem;
+  background: linear-gradient(90deg, white, #ccc);
+  max-height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#ponto-partida {
+  font-weight: normal;
+}
+
+#favoritos-container {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      border-radius: 0.25rem;
+      padding: 0.5rem;
+      border: var(--borda-basica);
+    }
+  }
+}
+
+.conteudo {
+  display: flex;
+  gap: 1rem;
+  overflow: auto;
+  flex-grow: 1;
+
+  section {
+    width: 50%;
+
+    .titulo-secao {
+      font-weight: 600;
+    }
+
+    &.secao-posts {
+      display: flex;
+      flex-direction: column;
+
+      .container {
+        position: relative;
+        flex-grow: 1;
+      }
+
+      #post-container {
+        position: absolute;
+        inset: 0;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        overflow: auto;
+        padding-right: 1rem;
+      }
+    }
+
+    #favoritos-container {
+      .btn-remover-fav {
+        border: none;
+        background-color: transparent;
+        color: red;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        /* borda transparent para evitar mudança no layout quando der o hover */
+        border: 1px solid transparent;
+
+        &:hover {
+          border: 1px solid rgba(0, 0, 0, 0.25);
+        }
+      }
+    }
+  }
+}
+
+.post {
+  border-radius: 0.25rem;
+  border: var(--borda-basica);
+  padding: 1rem;
+
+  .titulo-post {
+    font-weight: 500;
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+
+  .corpo-post {
+    padding: 0.5rem;
+  }
+
+  .botao-favorito {
+    cursor: pointer;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: red;
+    color: white;
+
+    &.favorito {
+      background-color: black;
+      color: white;
+    }
+  }
+}
